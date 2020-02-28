@@ -173,9 +173,10 @@ class Student extends Lambdasian {
   PRAssignment(student, subject){
     return `${student.name} has submitted a PR for ${subject}`;
   }
-
+  sprintChallenge(student){
+    return `${student.name} has begun sprint cahllenge on ${subject}`;
+  }
 }
-
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -189,8 +190,18 @@ class Student extends Lambdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor {
+constructor(attr){
+  super(attr),
+  this.gradClassName = attr.gradClassName,
+  this.favInstructor = attr.favInstructor
+  }
+  standUp(name, channel){
+    return `${name} anounces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(student, subject){
+    return `${name} debugs ${student.name}'s code on ${subject}`;
+  }
 }
 
 /*
